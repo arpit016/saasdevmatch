@@ -5,14 +5,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   validates :first_name, :last_name, :email, :password, presence: true
+  has_one :profile
          
   belongs_to :plan
   attr_accessor :stripe_card_token
          
-  def full_name
-    return "#{first_name} #{last_name}".strip if (first_name || last_name)
-    "Anonymous"
-  end
+  # def full_name
+  #   return "#{first_name} #{last_name}".strip if (first_name || last_name)
+  #   "Anonymous"
+  # end
   
   def save_with_payment
     if valid?
