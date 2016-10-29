@@ -1,17 +1,12 @@
 class ProfilesController < ApplicationController
     before_action :authenticate_user!
+    before_action correct_user
     
     def new
         #form for user to fill his profile 
         #No other user should be able to access other user profile to edit or fill his profile
-        if correct_user
-            @user = User.find(params[:user_id])
-            @profile = Profile.new
-        else
-           flash[:warning] = "You cannot fill out other people profile"
-           redirect_to new_user_profile_path(user_id:current_user.id)
-           #render action: :new
-        end
+        @user = User.find(params[:user_id])
+        @profile = Profile.new
     end
     
     def create
@@ -48,11 +43,8 @@ class ProfilesController < ApplicationController
         end
         
         def correct_user
-           if current_user.id.to_s == params[:user_id]
-               return true
-           else
-               return false
-           end
+            @user = User.find(params[:id])
+           redirect_to root_url unless @user == current_user
         end
     
 end
