@@ -1,7 +1,12 @@
 /* Users Show Page Styles */
 .user-show-avatar {
-  height: 128px;
-  width: 128px;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+    border: 2px solid white;
+      -webkit-box-shadow: 0px 6px 7px -1px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 6px 7px -1px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 6px 7px -1px rgba(50, 50, 50, 0.75);
 }
 .job-title-icon {
   display: inline-block;
