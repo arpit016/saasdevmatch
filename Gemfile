@@ -21,6 +21,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '4.7.0'
 gem 'devise'
 gem 'stripe'
+gem "paperclip", "~> 5.0.0"
 gem "figaro"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
